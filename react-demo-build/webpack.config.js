@@ -47,24 +47,14 @@ module.exports = {    // 入口文件
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: './src/index.html',
+            template: './src/App.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true
             }
         }),
         new cleanWebpackPlugin(['dist']),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: function () {
-                    return [
-                        require("autoprefixer")({
-                            browsers: ['ie>=8', '>1% in CN']
-                        })
-                    ]
-                }
-            }
-        }),
+        new webpack.LoaderOptionsPlugin({}),
         new webpack.HotModuleReplacementPlugin(),
     ]
 };

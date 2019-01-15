@@ -1,7 +1,6 @@
 import React, { Component }  from 'react';
-import { render } from 'react-dom';
 
-export class LikeButton extends Component {
+export default class LikeButton extends Component {
     constructor(props) {
         super(props);
         this.state = { liked: false };
@@ -20,8 +19,3 @@ export class LikeButton extends Component {
         );
     }
 }
-
-render(
-    <LikeButton />,
-    document.getElementById('root')
-);
