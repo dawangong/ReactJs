@@ -3,6 +3,7 @@ import LikeButton from './button';
 import Header from './header';
 import List from './list';
 import Search from './search';
+import FilterableProductTable from '../components/searchInput/FilterableProductTable';
 
 export default class App extends Component {
     constructor(props) {
@@ -27,9 +28,19 @@ export default class App extends Component {
             },
         ];
 
+        const data = [
+            {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+            {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
+            {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
+            {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
+            {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
+            {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+        ];
+
         this.state = {
             list,
-            searchTerm: ''
+            searchTerm: '',
+            data
         };
     }
 
@@ -38,20 +49,25 @@ export default class App extends Component {
     }
 
     render() {
-        const { searchTerm, list } = this.state;
+        const { searchTerm, list, data } = this.state;
         return (
             <div className="main">
-                主页
-                <Header />
-                <LikeButton />
-                <Search
-                    value={searchTerm}
-                    onChange={() => this.onSearchChange(event)}
-                />
-                <List
-                    list={list}
-                    pattern={searchTerm}
-                />
+                <div className="散件">
+                    主页
+                    <Header />
+                    <LikeButton />
+                    <Search
+                        value={searchTerm}
+                        onChange={() => this.onSearchChange(event)}
+                    />
+                    <List
+                        list={list}
+                        pattern={searchTerm}
+                    />
+                </div>
+                <div className="搜索框">
+                    <FilterableProductTable></FilterableProductTable>
+                </div>
             </div>
         );
     }
