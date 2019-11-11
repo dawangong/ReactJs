@@ -10,6 +10,11 @@ const fs = require('fs');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
+// mock配置开始
+const mock = require('../mock');
+const bodyParser = require('body-parser');
+// mock配置结束
+
 module.exports = function(proxy, allowedHost) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
@@ -83,6 +88,11 @@ module.exports = function(proxy, allowedHost) {
     public: allowedHost,
     proxy,
     before(app, server) {
+      app.use(bodyParser.json());
+      app.use(bodyParser.urlencoded({ extended: false }));
+      app.use((res, req, next) => {
+        mock(res, req, next);
+      });
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(app);

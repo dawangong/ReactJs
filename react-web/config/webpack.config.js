@@ -26,10 +26,15 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
+const devServer = require('./webpackDevServer.config');
 
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
+
+const isLocal = true;
+
+const target = isLocal ? 'http://localhost:8080' : 'your domain';
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -348,7 +353,7 @@ module.exports = function(webpackEnv) {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
                 resolvePluginsRelativeTo: __dirname,
-                
+
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -381,7 +386,7 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -423,7 +428,7 @@ module.exports = function(webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-                
+
                 // If an error happens in a package, it's possible to be
                 // because it was compiled. Thus, we don't want the browser
                 // debugger to show the original code. Instead, the code
@@ -517,6 +522,31 @@ module.exports = function(webpackEnv) {
         },
       ],
     },
+    devServer: devServer({
+
+      assetsSubDirectory: 'static',
+      assetsPublicPath: '/',
+      proxyTable: {
+        '/api': {
+          target,
+          pathRewrite: { '^/api': '' },
+          logLevel: 'debug',
+          changeOrigin: !isLocal
+        }
+      },
+
+      host: 'localhost',
+      port: 8080,
+      autoOpenBrowser: true,
+      errorOverlay: true,
+      notifyOnErrors: true,
+      poll: false,
+      useEslint: true,
+      showEslintErrorsInOverlay: false,
+      devtool: 'cheap-module-eval-source-map',
+      cacheBusting: true,
+      cssSourceMap: true
+    }),
     plugins: [
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
