@@ -1,8 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import logo from './assets/images/logo.svg';
 import './App.scss';
+// import { Link }from 'react-router-dom';
 
-class App extends React.Component {
+class App extends Component {
     render() {
       return (
         <div className="App">
@@ -19,6 +20,7 @@ class App extends React.Component {
             >
               Learn React
             </a>
+            {/*<Link to="/test">test</Link>*/}
           </header>
         </div>
       );
