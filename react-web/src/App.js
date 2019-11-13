@@ -1,7 +1,6 @@
+import './App.scss';
 import React, { Component } from 'react';
 import logo from './assets/images/logo.svg';
-import './App.scss';
-// import { Link }from 'react-router-dom';
 
 class App extends Component {
     render() {
@@ -20,7 +19,6 @@ class App extends Component {
             >
               Learn React
             </a>
-            {/*<Link to="/test">test</Link>*/}
           </header>
         </div>
       );
