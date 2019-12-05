@@ -1,4 +1,6 @@
 import './App.scss';
+// import { Button } from 'antd';
+import Button from 'antd/es/button';
 import React, { Component } from 'react';
 import logo from './assets/images/logo.svg';
 
@@ -19,6 +21,7 @@ class App extends Component {
             >
               Learn React
             </a>
+            <Button>111</Button>
           </header>
         </div>
       );
