@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class Other extends Component {
+class More extends Component {
   render() {
     return (
-      <p>other</p>
+      <p>敬请期待...</p>
     );
   }
 }
 
-export default Other;
+export default More;
