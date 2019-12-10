@@ -8,15 +8,15 @@ import { renderRoutes } from 'react-router-config';
 const { Header, Content, Footer } = Layout;
 
 class App extends Component {
-  constructor (prop) {
-    super(prop);
+  constructor () {
+    super();
     const { pathname } = window.location;
     const index = routerConfig.map(({ path }) => path).indexOf(pathname);
+    const key = index === -1 ? ['0'] : [String(index)];
     this.state = {
-      defaultSelectedKeys: index === -1 ? ["0"] : [String(index)],
+      defaultSelectedKeys: key,
       crumb: routerConfig[0].name
     };
-    console.log(this.state);
   }
   getNowSelect(e) {
     this.setState({
@@ -53,7 +53,10 @@ class App extends Component {
               {renderRoutes(routerConfig)}
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>created by dawangong(@126.com) in 2019</Footer>
+          <Footer style={{ textAlign: 'center' }}>
+            <img src="https://lc-losb6sly.cn-n1.lcfile.com/81c3a17501b78967169c/beianicon.png" style={{height: "15px", lineHeight: "15px", marginRight: "10px", marginBottom: "3px"}} alt="图标"/>
+            <a style={{color: "black"}} href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action;jsessionid=HVrfq3m52z7zGq7sXM3BNKVUV67CENnvftr1N5FoqCx4c7ccWWSd!1958385134">陕ICP备19023264号 © 2019</a>
+          </Footer>
         </Layout>
       </Router>
     );
