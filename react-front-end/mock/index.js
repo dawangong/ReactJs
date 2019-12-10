@@ -1,11 +1,15 @@
-const fs = require('fs');
-const express = require('express');
-const router = express.Router();
+/**
+ * Created by wen hao
+ */
 
-fs.readdirSync('mock').forEach(function (route) {
-  if (route.indexOf('index') === -1) {
-    require('./' + route)(router);
-  }
-});
+module.exports = function (app) {
+  app.get('/api/main', (req, res) => {
+    return res.json({
+      data: '欢迎来到首页~'
+    });
+  });
 
-module.exports = router;
+  // app.get('/history', (req, res) => {
+  //   return res.json(history);
+  // });
+};

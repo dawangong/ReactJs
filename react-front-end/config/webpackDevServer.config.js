@@ -11,11 +11,11 @@ const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
 // mock配置开始
-const mock = require('../mock');
+const mock = require('../mock/mock');
 const bodyParser = require('body-parser');
 // mock配置结束
 
-module.exports = function(proxy, allowedHost) {
+module.exports = function(proxy, allowedHost, enableMock) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
     // websites from potentially accessing local content through DNS rebinding:
@@ -88,11 +88,13 @@ module.exports = function(proxy, allowedHost) {
     public: allowedHost,
     proxy,
     before(app, server) {
-      app.use(bodyParser.json());
-      app.use(bodyParser.urlencoded({ extended: false }));
-      app.use((res, req, next) => {
-        mock(res, req, next);
-      });
+      if (enableMock) {
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use((res, req, next) => {
+          mock(res, req, next);
+        });
+      }
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(app);

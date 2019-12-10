@@ -11,11 +11,12 @@ class App extends Component {
   constructor (prop) {
     super(prop);
     const { pathname } = window.location;
-    const index = routerConfig.map(({ path }) => path).indexOf(pathname) || 0;
+    const index = routerConfig.map(({ path }) => path).indexOf(pathname);
     this.state = {
-      defaultSelectedKeys: [String(index)],
+      defaultSelectedKeys: index === -1 ? ["0"] : [String(index)],
       crumb: routerConfig[0].name
     };
+    console.log(this.state);
   }
   getNowSelect(e) {
     this.setState({

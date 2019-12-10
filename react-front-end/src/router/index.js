@@ -1,4 +1,4 @@
-import Index from '..//views/index/index'
+import Index from '../views/index/index'
 import Record from '../views/record/record';
 import More from '../views/more/more';
 import About from '../views/about/about';
@@ -6,7 +6,7 @@ import NotFound from '../views/notFound/notFound'
 
 const routerConfig = [
   {
-    path: "/index",
+    path: "/",
     name: "我的首页",
     exact: true,
     component: Index
