@@ -39,7 +39,7 @@ class App extends Component {
               style={{ lineHeight: '64px' }}
             >
               {routerConfig.slice(0, routerConfig.length - 1).map(({ path, name }, index) =>
-                <Menu.Item style={{ cursor: 'point' }} key={index}><Link to={path}>{name}</Link></Menu.Item>
+                <Menu.Item style={{ cursor: 'point' }} key={index}><Link style={{ cursor: 'point' }} to={path}>{name}</Link></Menu.Item>
               )}
             </Menu>
           </Header>
