@@ -3,13 +3,13 @@
  */
 
 module.exports = function (app) {
-  app.get('/api/main', (req, res) => {
+  app.get("/main", (req, res) => {
     return res.json({
-      data: '欢迎来到首页~'
+      data: "欢迎来到首页~"
     });
   });
 
-  app.get('/api/router', (req, res) => {
+  app.get("/router", (req, res) => {
     return res.json({
       data: [
         {
