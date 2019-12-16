@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Button } from 'antd'
+import { mainApi } from '../../api/index'
+// import { Button } from 'antd'
 
 class Index extends Component {
   constructor(prop) {
     super(prop);
-    axios.get("/api/main");
+    mainApi().then(data => {
+      console.log(data);
+    }).catch(err => {
+      console.log(err);
+    });
   }
   render() {
     return (

@@ -1,3 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.baseURL = 'api';
+const mainApi = data => {
+  return axios({
+    method: 'get',
+    url: "/main",
+    params: data
+  });
+};
+
+export {
+  mainApi
+}
+
