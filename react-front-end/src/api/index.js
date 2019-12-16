@@ -1,7 +1,7 @@
-import axios from "axios";
+import http from "./http";
 
 const mainApi = data => {
-  return axios({
+  return http({
     method: 'get',
     url: "/main",
     params: data
