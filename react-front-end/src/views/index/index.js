@@ -10,16 +10,21 @@ class Index extends Component {
   constructor(prop) {
     super(prop);
     this.state = {};
+    this.init();
+  }
+
+  init() {
     mainApi().then(data => {
-      console.log(data);
+      this.props.mainStore.init(data);
     }).catch(err => {
       console.log(err);
     });
   }
+
   render() {
     const { mainStore } = this.props;
     return (
-      <Button onClick={() => {mainStore.change('a')}}>{ mainStore.name }</Button>
+      <Button onClick={() => {mainStore.change('update')}}>{ mainStore.name }</Button>
     );
   }
 }

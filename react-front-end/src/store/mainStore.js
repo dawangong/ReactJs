@@ -1,11 +1,16 @@
 import { observable, action } from 'mobx';
 
 class MainStore {
-  @observable name = 'index';
+  @observable name = '';
 
   @action
-  change(data) {
-    this.name = this.name + data;
+  init(name) {
+    this.name = name;
+  }
+
+  @action
+  change(name) {
+    this.name = this.name + name;
   }
 }
 
