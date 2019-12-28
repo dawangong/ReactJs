@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import "./styles/reset";
 
 .App {
   text-align: center;
@@ -21,4 +22,11 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.content {
+  position: relative;
+  background: white;
+  min-height: 60rem;
+  padding-top: 6.5rem;
 }

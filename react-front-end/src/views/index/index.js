@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
-// import { mainApi } from '../../api/index'
-import { observer, inject } from 'mobx-react';
-import { Button } from 'antd'
-import { mainApi } from "../../api/index";
+import avatar from '../../assets/images/avataaars.svg'
+import './index.scss';
 
-@inject('mainStore')
-@observer
 class Index extends Component {
-  constructor(prop) {
-    super(prop);
-    this.state = {};
-    this.init();
-  }
 
-  init() {
-    mainApi().then(data => {
-      this.props.mainStore.init(data);
-    }).catch(err => {
-      console.log(err);
-    });
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
   render() {
-    const { mainStore } = this.props;
     return (
-      <Button onClick={() => {mainStore.change('update')}}>{ mainStore.name }</Button>
+      <div className="index">
+        <img src={avatar} className="avatar" alt="avatar" />
+        <h1>WELCOME TO MY WORLD</h1>
+        <p>A FRONT END CODER</p>
+      </div>
     );
   }
 }
