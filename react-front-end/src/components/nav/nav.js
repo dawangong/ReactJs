@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import routerConfig from "../../router";
 import { throttle } from 'lodash-decorators';
 
-
 class Nav extends Component{
 
   static defaultProps = {

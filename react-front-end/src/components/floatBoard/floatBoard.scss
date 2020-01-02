@@ -1,0 +1,62 @@
+.float-board {
+  width: 250px;
+  min-height: 80px;
+  padding: 5px 10px;
+  border: 1px solid rgba(224, 186, 140, 0.62);
+  border-radius: 12px;
+  background-color: rgba(236, 217, 188, 0.5);
+  box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+  font-size: 14px;
+  line-height: 24px;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: fixed;
+  z-index: 35;
+  right: 20px;
+  top: 150px;
+  opacity: 0;
+  animation: shake 10s ease-in-out 0s infinite, float-rotate 10s ease-in-out 0s infinite;
+}
+
+@keyframes shake {
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes float-rotate {
+  16% {
+    transform: rotateZ(2deg) translateX(1px);
+  }
+  32% {
+    transform: rotateZ(1deg) translateX(0);
+  }
+  48% {
+    transform: rotateZ(0deg) translateX(1px);
+  }
+  64% {
+    transform: rotateZ(-1deg) translateX(0);
+  }
+  80% {
+    transform: rotateZ(-2deg) translateX(1px);
+  }
+  96% {
+    transform: rotateZ(-1deg) translateX(0);
+  }
+  100% {
+    transform: rotateZ(0deg) translateX(1px);
+  }
+}

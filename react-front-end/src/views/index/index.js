@@ -12,7 +12,7 @@ class Index extends Component {
   render() {
     return (
       <div className="index">
-
+          等待中...
       </div>
     );
   }
