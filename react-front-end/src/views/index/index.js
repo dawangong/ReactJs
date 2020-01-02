@@ -12,9 +12,7 @@ class Index extends Component {
   render() {
     return (
       <div className="index">
-        <img src={avatar} className="avatar" alt="avatar" />
-        <h1>WELCOME TO MY WORLD</h1>
-        <p>A FRONT END CODER</p>
+
       </div>
     );
   }

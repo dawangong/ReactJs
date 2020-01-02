@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import routerConfig from './router/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import { Nav, Footer } from './components/components';
+import { Nav, Footer, Cat } from './components/components';
+import { Carousel } from 'antd';
+import huoying from './assets/images/huoying.jpg';
+
 
 class App extends Component {
   constructor () {
@@ -24,11 +27,24 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Nav routerConfig={routerConfig} />
-        <div className="content">
-          {renderRoutes(routerConfig)}
+        <div className="page-container">
+          <Cat />
+          <Nav routerConfig={routerConfig} />
+          <Carousel autoplay={true} effect="fade" dots={false}>
+            <div>
+              <img src={huoying} alt="banner图"/>
+            </div>
+          </Carousel>
+          <div className="filter-dot"> </div>
+          <div className="wave">
+            <div className="wave-1"> </div>
+            <div className="wave-2"> </div>
+          </div>
+          <div className="page-content">
+            {renderRoutes(routerConfig)}
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </Router>
     );
   }

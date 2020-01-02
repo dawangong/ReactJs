@@ -45,10 +45,10 @@ class Nav extends Component{
     const { crumb, dynamicNav = false } = this.state;
     return (
       <div className={`nav-container ${dynamicNav ? 'dynamic-nav' : ''}`}>
-        <p className="main-title">{crumb}</p>
+        <p className="main-title">大きな星はない</p>
         <ul className="nav-ul">
           {routerConfig.slice(0, routerConfig.length - 1).map(({ path, name, checked }, index) =>
-            <li className={`nav-item ${checked ? 'nav-ul-checked' : '' }`} key={path}>
+            <li className={`nav-item ${checked ? 'nav-item-checked' : '' }`} key={path}>
               <Link
                 onClick={() => { this.getNowSelect(index) }}
                 style={{ cursor: 'point' }}
