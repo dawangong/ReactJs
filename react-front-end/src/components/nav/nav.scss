@@ -16,6 +16,11 @@
   .main-title {
     font-size: 2rem;
     color: #314659;
+    transition: color 0.5s;
+
+    &:hover {
+      color: #fe9600;
+    }
   }
 
   .nav-ul {

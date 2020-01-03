@@ -1,5 +1,6 @@
 const router = require('koa-router')();
 const { menu } = require('../db/models');
+const { getArticleDirectory } = require('../script/index');
 router.prefix('/api');
 
 router.get('/main', async (ctx, next) => {
@@ -15,7 +16,17 @@ router.get('/router', async (ctx, next) => {
   };
 });
 
+router.get('/article-directory', async (ctx, next) => {
+  const { page } = ctx.request.query;
+  const list = await getArticleDirectory(`https://blog.csdn.net/wangongda/article/list/${page}`);
+
+  ctx.response.body = {
+    data: list
+  };
+});
+
 // router.get('/', async (ctx, next) => {
+//   ctx.request.body
 //   await ctx.render('index', {
 //     title: 'Hello Koa 2!'
 //   })

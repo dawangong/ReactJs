@@ -41,7 +41,7 @@ class Nav extends Component{
 
   render() {
     const { routerConfig } = this.props;
-    const { crumb, dynamicNav = false } = this.state;
+    const { dynamicNav = false } = this.state;
     return (
       <div className={`nav-container ${dynamicNav ? 'dynamic-nav' : ''}`}>
         <p className="main-title">大きな星はない</p>

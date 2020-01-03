@@ -13,7 +13,7 @@ class Banner extends Component{
   render() {
     return (
       <Carousel autoplay={true} effect="fade" dots={false}>
-        {BannerAddress.map(item => <div>
+        {BannerAddress.map((item, index) => <div key={index}>
           <img src={item} alt="banner图"/>
         </div>)}
       </Carousel>)
