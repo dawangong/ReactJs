@@ -3,7 +3,7 @@ import http from "./http";
 const musicApi = data => {
   return http({
     method: 'get',
-    url: "https://api.i-meto.com/meting/api",
+    url: "/other/meting/api",
     params: data
   });
 };
