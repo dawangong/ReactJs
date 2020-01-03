@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './banner.scss';
 import { Carousel } from 'antd';
-import huoying from '../../assets/images/huoying.jpg';
+import BannerAddress from './data';
 
 class Banner extends Component{
 
@@ -13,9 +13,9 @@ class Banner extends Component{
   render() {
     return (
       <Carousel autoplay={true} effect="fade" dots={false}>
-        <div>
-          <img src={huoying} alt="banner图"/>
-        </div>
+        {BannerAddress.map(item => <div>
+          <img src={item} alt="banner图"/>
+        </div>)}
       </Carousel>)
   }
 }
