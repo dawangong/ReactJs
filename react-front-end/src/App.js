@@ -19,8 +19,11 @@ class App extends Component {
       props: {
         theme: '#7fa0ff',
         lrcType: 3,
+        mini: true,
+        fixed: true,
         audio: []
-      }
+      },
+      showMusic: false
     };
   }
 
@@ -31,9 +34,11 @@ class App extends Component {
       type: 'playlist',
       id: 2878443703
     }).then(item => {
-      props.audio.push(item);
+      props.audio = item;
+      console.log(props, 11);
       this.setState({
-        props
+        props,
+        showMusic: true
       })
     }).catch(err => {
       console.log(err);
@@ -41,16 +46,14 @@ class App extends Component {
   }
 
   render() {
-    const { props } = this.state;
+    const { props, showMusic } = this.state;
     return (
       <Router>
         <div className="page-container">
           <Cat />
           <FloatBoard />
           <p className="welcome-message">I'll be waiting for you!</p>
-          <div className="player-warp">
-            <ReactAplayer {...props} />
-          </div>
+          {showMusic ? <ReactAplayer {...props} /> : <div> </div>}
           <Info />
           <Nav routerConfig={routerConfig} />
           < Banner />
