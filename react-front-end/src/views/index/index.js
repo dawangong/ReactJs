@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { getArticleDirectoryApi } from '../../api/blog'
+import {
+  // getArticleDirectoryApi,
+  getBlogDirectoryApi } from '../../api/blog'
 import './index.scss';
+import img from './data';
 
 class Index extends Component {
 
@@ -10,6 +13,7 @@ class Index extends Component {
       page: 1,
       list: []
     };
+    this.addReplaceOver();
   }
 
   componentDidMount() {
@@ -39,17 +43,53 @@ class Index extends Component {
     );
   }
 
+  addReplaceOver() {
+    String.prototype.replaceOver = function () {
+      return this.replace('原创', '').replace('...', '').replace(/\n/g, '').trim();
+    };
+  }
+
   getArticleDirectory() {
     const { page } = this.state;
-    getArticleDirectoryApi({
+    // getArticleDirectoryApi({
+    //   page
+    // }).then(list => {
+    //   this.setState({
+    //     list
+    //   });
+    // }).catch(err => {
+    //   console.log(err);
+    // });
+
+    getBlogDirectoryApi({
       page
-    }).then(list => {
+    }).then(res => {
+      const list = [];
+      const domParse = new DOMParser();
+      const dom = domParse.parseFromString(res, 'text/html');
+      const num = dom.querySelectorAll('.article-item-box');
+      num.forEach((item, index) => {
+        const articleId = item.getAttribute('data-articleid');
+        const title =  dom.querySelectorAll('.article-item-box h4 a')[index].text.replaceOver();
+        const describe =  dom.querySelectorAll('.article-item-box .content a')[index].text.replaceOver();
+        const createDate =  dom.querySelectorAll('.date')[index].innerText.replaceOver();
+        const num = Math.floor(Math.random() * (img.length - 1));
+
+        list.push({
+          articleId,
+          title,
+          describe,
+          createDate,
+          img: img[num]
+        });
+      });
       this.setState({
         list
       });
     }).catch(err => {
       console.log(err);
-    })
+    });
+
   }
 
   nextPage() {

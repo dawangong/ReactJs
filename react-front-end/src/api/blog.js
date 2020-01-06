@@ -8,7 +8,16 @@ const getArticleDirectoryApi = data => {
   });
 };
 
+const getBlogDirectoryApi = data => {
+  const { page } = data;
+  return http({
+    method: 'get',
+    url: `/csdn/wangongda/article/list/${page}`
+  });
+};
+
 export {
-  getArticleDirectoryApi
+  getArticleDirectoryApi,
+  getBlogDirectoryApi
 }
 

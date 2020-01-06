@@ -16,9 +16,13 @@ router.get('/router', async (ctx, next) => {
   };
 });
 
+getArticleDirectory(`https://blog.csdn.net/wangongda/article/list/1`);
+
 router.get('/article-directory', async (ctx, next) => {
   const { page } = ctx.request.query;
   const list = await getArticleDirectory(`https://blog.csdn.net/wangongda/article/list/${page}`);
+
+  console.log(list, 'list');
 
   ctx.response.body = {
     data: list

@@ -1,5 +1,8 @@
 const request = require('request');
 const cheerio = require('cheerio');
+const zlib = require('zlib');
+// const iconv = require('iconv-lite');
+const https = require("https");
 
 const img = [
   'http://i1.fuimg.com/620130/b56654a5de756722.jpg',
@@ -23,40 +26,105 @@ const img = [
   'http://i2.tiimg.com/620130/8a5f408e3545f5fc.png'
 ];
 
+const getList = html => {
+  const $ = cheerio.load(html);
+  const list = [];
+
+  $('.article-item-box').each((index, element) => {
+
+    const $element = $(element);
+    const h4 = $($('.article-item-box h4 a')[index]).text().replace('原创', '').replace('...', '').replace(/\n/g, '').trim();
+    const describe = $($('.article-item-box .content a')[index]).text().replace(/\n/g, '').replace('...', '').trim();
+    const createDate = $($('.date')[index]).text().replace(/\n/g, '').replace('...', '').trim();
+
+    const num = Math.floor(Math.random() * (img.length - 1));
+
+    list.push({
+      articleId: $element.attr('data-articleid'),
+      title: h4,
+      describe,
+      createDate,
+      img: img[num]
+    })
+  });
+
+  return list;
+};
+
 const getArticleDirectory = url => {
+  const options = {
+    method: 'get',
+    encoding: null,
+    headers: {
+      'sec-fetch-mode': 'navigate',
+      'sec-fetch-user': '?1',
+      'upgrade-insecure-requests': '1',
+      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3964.0 Safari/537.36',
+      'accept-encoding': 'gzip',
+      'transfer-encoding': 'chunked',
+      'connection': 'keep-alive',
+      'referer': url
+    },
+    url,
+    host: 'blog.csdn.net',
+    path: '/wangongda/article/list/1'
+  };
   return new Promise(resolve => {
-    request(url, function(err, response, html){
-      if(!err){
-        const $ = cheerio.load(html.toString());
-        const list = [];
 
-        const page = $('.ui-paging-container .ui-pager');
-        const pageNum = page.length;
-        const maxPage = $(page[0]).text();
+    const file = [];
+    https.get(options, (res) => {
+      res.on('data', (chunk) => {
+        console.log(chunk.length, chunk);
+        file.push(chunk);
+      });
 
-        console.log(maxPage, 11);
-
-        $('.article-item-box').each((index, element) => {
-
-          const $element = $(element);
-
-          const h4 = $($('.article-item-box h4 a')[index]).text().replace('原创', '').replace('...', '').replace(/\n/g, '').trim();
-          const describe = $($('.article-item-box .content a')[index]).text().replace(/\n/g, '').replace('...', '').trim();
-          const createDate = $($('.date')[index]).text().replace(/\n/g, '').replace('...', '').trim();
-
-          const num = Math.floor(Math.random() * (img.length - 1));
-
-          list.push({
-            articleId: $element.attr('data-articleid'),
-            title: h4,
-            describe,
-            createDate,
-            img: img[num]
-          })
+      res.on('end', () => {
+        let length = 0;
+        file.forEach(item => {
+          length += item.length;
         });
-        resolve(list);
-      }
+        const result = Buffer.concat(file, length);
+        zlib.unzip(result, function (err, buffer) {
+          console.log(err, '错误');
+          const list = getList(buffer);
+          resolve(list);
+        })
+      });
+    }).on('error', (e) => {
+      console.error(e);
     });
+
+    // const file = [];
+    // request(options, function (err, response, body) {
+    //   console.log(response.headers);
+    //   // if (!err) {
+    //   //   const list = getList(body.toString());
+    //   //   resolve(list);
+    //   //   // zlib.unzip(body, function (err, buffer) {
+    //   //   //   console.log(err, '错误');
+    //   //   //   const list = getList(buffer);
+    //   //   //   resolve(list);
+    //   //   // });
+    //   // }
+    // }).on('response', function (response) {
+    //   response.on('data', data => {
+    //     console.log(data.length, data);
+    //     file.push(data);
+    //   });
+    //
+    //   response.on('end', () => {
+    //     let length = 0;
+    //     file.forEach(item => {
+    //       length += item.length
+    //     });
+    //     const res = Buffer.concat(file, length);
+    //     zlib.unzip(res, function (err, buffer) {
+    //       console.log(err, '错误');
+    //       const list = getList(buffer);
+    //       resolve(list);
+    //     });
+    //   });
+    // })
   });
 };
 
