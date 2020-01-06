@@ -56,14 +56,20 @@ const getArticleDirectory = url => {
     method: 'get',
     encoding: null,
     headers: {
-      'sec-fetch-mode': 'navigate',
-      'sec-fetch-user': '?1',
-      'upgrade-insecure-requests': '1',
+      'host': 'blog.csdn.net',
       'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3964.0 Safari/537.36',
-      'accept-encoding': 'gzip',
       'transfer-encoding': 'chunked',
       'connection': 'keep-alive',
-      'referer': url
+      'referer': 'blog.csdn.net',
+      'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+      'accept-encoding': 'gzip, deflate, br',
+      'accept-language': 'zh-CN,zh;q=0.9',
+      'pragma': 'no-cache',
+      'sec-fetch-mode': 'navigate',
+      'sec-fetch-user': '?1',
+      'sec-fetch-site': 'cross-site',
+      'upgrade-insecure-requests': '1',
+      'cookie': 'acw_tc=2760820215782832053302253e52949a537d67dcfa555ad8f89a2b0a5aebac; TY_SESSION_ID=91c35e4b-cb89-496a-901d-7e28b4eaee02; SL_GWPT_Show_Hide_tmp=1; SL_wptGlobTipTmp=1; Hm_lvt_e5ef47b9f471504959267fd614d579cd=1578283506; Hm_lpvt_e5ef47b9f471504959267fd614d579cd=1578283506; Hm_ct_e5ef47b9f471504959267fd614d579cd=6525*1*10_19090316320-1578283205332-641932; __yadk_uid=LW75E2ajHJrPIYyCrtZUN1vacg19Ma9T; uuid_tt_dd=10_20727129480-1578291096386-595603; dc_session_id=10_1578291096386.893287; hasSub=true; announcement=%257B%2522isLogin%2522%253Afalse%252C%2522announcementUrl%2522%253A%2522https%253A%252F%252Fblog.csdn.net%252Fblogdevteam%252Farticle%252Fdetails%252F103603408%2522%252C%2522announcementCount%2522%253A0%252C%2522announcementExpire%2522%253A3600000%257D; acw_sc__v2=5e12d4500b3b911754e2301d052080ad1c0a4289; Hm_ct_6bcd52f51e9b3dce32bec4a3997715ac=6525*1*10_20727129480-1578291096386-595603!5744*1*wangongda; searchHistoryArray=%255B%2522%25E6%258E%25A5%25E5%258F%25A3%2522%255D; Hm_lvt_6bcd52f51e9b3dce32bec4a3997715ac=1578292317,1578292320,1578292529,1578292781; dc_tos=q3oal9; c-login-auto=7; Hm_lpvt_6bcd52f51e9b3dce32bec4a3997715ac=1578292894'
     },
     url,
     host: 'blog.csdn.net',
@@ -83,6 +89,7 @@ const getArticleDirectory = url => {
         file.forEach(item => {
           length += item.length;
         });
+        console.log(length, 11);
         const result = Buffer.concat(file, length);
         zlib.unzip(result, function (err, buffer) {
           console.log(err, '错误');
