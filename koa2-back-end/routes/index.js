@@ -17,12 +17,12 @@ router.get('/router', async (ctx, next) => {
   };
 });
 
-getArticleDirectory(`https://blog.csdn.net/wangongda/article/list/1`);
+getArticleDirectory(`https://www.cnblogs.com/xin-lover/default.html?page=2`);
 // get(`https://blog.csdn.net/wangongda/article/list/1`);
 
 router.get('/article-directory', async (ctx, next) => {
   const { page } = ctx.request.query;
-  const list = await getArticleDirectory(`https://blog.csdn.net/wangongda/article/list/${page}`);
+  const list = await getArticleDirectory(`https://www.cnblogs.com/xin-lover/default.html?page=2`);
   // const list = await get(`https://blog.csdn.net/wangongda/article/list/1`);
 
   console.log(list, 'list');

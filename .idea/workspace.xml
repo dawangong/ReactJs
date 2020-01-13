@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="29ca20f9-3834-4029-ad51-a5a059b9c047" name="Default" comment="" />
+    <list default="true" readonly="true" id="29ca20f9-3834-4029-ad51-a5a059b9c047" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/koa2-back-end/script/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/script/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/script/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-front-end/src/api/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-front-end/src/views/index/index.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -71,7 +79,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -79,10 +86,16 @@
               <item name="ReactJs" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReactJs" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ReactJs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReactJs" type="462c0819:PsiDirectoryNode" />
+              <item name="react-front-end" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="NBKnowledgePane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -140,11 +153,12 @@
       <workItem from="1573440158822" duration="228000" />
       <workItem from="1573528603931" duration="45000" />
       <workItem from="1575602538872" duration="51000" />
+      <workItem from="1578534345250" duration="17000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1254000" />
+    <option name="totallyTimeSpent" value="1271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -154,10 +168,10 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38545454" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38545454" />
       <window_info anchor="bottom" id="RNConsole" order="7" />
       <window_info anchor="right" id="Jenkins" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24928367" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24928367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
