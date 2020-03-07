@@ -2,13 +2,133 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="29ca20f9-3834-4029-ad51-a5a059b9c047" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/koa2-back-end/script/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa2-back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa2-back-end/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa2-back-end/script/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa2-back-end/script/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-front-end/src/api/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-front-end/src/views/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/dictionaries/qiwenhao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/koa2-back-end.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/bin/www" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/db/connect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/db/modelFactory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/db/modelMethod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/db/models.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/public/stylesheets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/routes/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/script/blog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/script/get.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/script/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/views/error.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/views/index.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa2-back-end/views/layout.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/App.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/app/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/searchInput/FilterableProductTable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/searchInput/ProductCategoryRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/searchInput/ProductRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/searchInput/ProductTable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/src/components/searchInput/SearchBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-demo-build/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/env.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/jest/cssTransform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/jest/fileTransform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/modules.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/paths.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/pnpTs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/config/webpackDevServer.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/mock/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/mock/mock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/mock/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/scripts/build.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/scripts/start.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/scripts/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/App.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/about.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/blog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/http.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/api/music.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/avataaars.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/bolang-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/bolang-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/cat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/filter-dot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/assets/images/timg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/ListItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/banner/banner.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/banner/banner.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/banner/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/btn-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/btn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/cat/cat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/cat/cat.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/child.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/floatBoard/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/floatBoard/floatBoard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/floatBoard/floatBoard.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/footer/footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/footer/footer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/info/info.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/info/info.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/nav/nav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/nav/nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/wave/wave.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/components/wave/wave.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/setupProxy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/store/mainStore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/styles/pages.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/styles/reset.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/about/about.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/about/about.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/index/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/index/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/index/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/index/xor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/more/more.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/more/more.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/notFound/notFound.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/record/record.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/src/views/record/record.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-front-end/yarn.lock" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,16 +175,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/react-demo-build/node_modules" />
     <handled-path value="$PROJECT_DIR$/react-family/node_modules" />
-    <handled-path value="$PROJECT_DIR$/react-front-end/node_modules" />
     <handled-path value="$PROJECT_DIR$/react-game/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/react-demo-build/package.json" />
       <path value="$PROJECT_DIR$/react-family/package.json" />
-      <path value="$PROJECT_DIR$/react-front-end/package.json" />
       <path value="$PROJECT_DIR$/react-game/package.json" />
     </packageJsonPaths>
   </component>
@@ -79,6 +195,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,16 +203,10 @@
               <item name="ReactJs" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReactJs" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ReactJs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReactJs" type="462c0819:PsiDirectoryNode" />
-              <item name="react-front-end" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="NBKnowledgePane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -154,11 +265,12 @@
       <workItem from="1573528603931" duration="45000" />
       <workItem from="1575602538872" duration="51000" />
       <workItem from="1578534345250" duration="17000" />
+      <workItem from="1583599227932" duration="820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1271000" />
+    <option name="totallyTimeSpent" value="2091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -172,12 +284,12 @@
       <window_info anchor="bottom" id="RNConsole" order="7" />
       <window_info anchor="right" id="Jenkins" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24928367" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -334,13 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/react-game/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-111" />
@@ -404,6 +509,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa2-back-end/db/modelMethod.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa2-back-end/db/connect.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
