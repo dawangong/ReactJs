@@ -117,13 +117,81 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"package/react-1/base.js":[function(require,module,exports) {
+})({"package/react-base/reactDom.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setAttribute = exports.getType = void 0;
+exports.ReactDom = exports._render = void 0;
+
+var _utils = require("./utils");
+
+// ReactDom
+var ReactDom = {}; // 真实dom挂载
+
+exports.ReactDom = ReactDom;
+
+var render = function render(vnode, container) {
+  return container.appendChild(_render(vnode));
+}; // 虚拟dom 渲染为 真实dom
+
+
+var _render = function _render(vnode) {
+  var emptyFn = function emptyFn() {
+    return vnode = '';
+  };
+
+  var renderMap = ["[object Null]", "[object Boolean]", "[object Undefined]"];
+  var type = (0, _utils.getType)(vnode);
+  if (renderMap.includes(type)) emptyFn();
+
+  if (type === "[object Number]") {
+    vnode = String(vnode);
+  }
+
+  if (type === "[object String]") {
+    return document.createTextNode(vnode);
+  }
+
+  if ((0, _utils.getType)(vnode.tag) === "[object Function]") {
+    var component = (0, _utils.createComponent)(vnode.tag, vnode.attrs);
+    (0, _utils.setComponentProps)(component, vnode.attrs);
+    return component.base;
+  }
+
+  var dom = document.createElement(vnode.tag);
+
+  if (vnode.attrs) {
+    Object.keys(vnode.attrs).forEach(function (key) {
+      var value = vnode.attrs[key];
+      (0, _utils.setAttribute)(dom, key, value);
+    });
+  } // 递归深度优先节点插入
+
+
+  vnode.children && vnode.children.forEach(function (child) {
+    return render(child, dom);
+  });
+  return dom;
+}; // 挂载方法
+
+
+exports._render = _render;
+ReactDom.render = render;
+},{"./utils":"package/react-base/utils.js"}],"package/react-base/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.renderComponent = exports.setComponentProps = exports.createComponent = exports.setAttribute = exports.getType = void 0;
+
+var _Component = _interopRequireDefault(require("./Component"));
+
+var _reactDom = require("./reactDom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -165,112 +233,10 @@ var setAttribute = function setAttribute(dom, name, value) {
       dom.removeAttribute(name);
     }
   }
-};
+}; // 创建组件
+
 
 exports.setAttribute = setAttribute;
-},{}],"package/react-1/reactDom.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ReactDom = exports._render = void 0;
-
-var _base = require("./base");
-
-var _Component = require("./Component");
-
-// ReactDom
-var ReactDom = {}; // 真实dom挂载
-
-exports.ReactDom = ReactDom;
-
-var render = function render(vnode, container) {
-  return container.appendChild(_render(vnode));
-}; // 虚拟dom 渲染为 真实dom
-
-
-var _render = function _render(vnode) {
-  var emptyFn = function emptyFn() {
-    return vnode = '';
-  };
-
-  var renderMap = ["[object Null]", "[object Boolean]", "[object Undefined]"];
-  var type = (0, _base.getType)(vnode);
-  if (renderMap.includes(type)) emptyFn();
-
-  if (type === "[object Number]") {
-    vnode = String(vnode);
-  }
-
-  if (type === "[object String]") {
-    return document.createTextNode(vnode);
-  }
-
-  if ((0, _base.getType)(vnode.tag) === "[object Function]") {
-    var component = (0, _Component.createComponent)(vnode.tag, vnode.attrs);
-    (0, _Component.setComponentProps)(component, vnode.attrs);
-    return component.base;
-  }
-
-  var dom = document.createElement(vnode.tag);
-
-  if (vnode.attrs) {
-    Object.keys(vnode.attrs).forEach(function (key) {
-      var value = vnode.attrs[key];
-      (0, _base.setAttribute)(dom, key, value);
-    });
-  } // 递归深度优先节点插入
-
-
-  vnode.children && vnode.children.forEach(function (child) {
-    return render(child, dom);
-  });
-  return dom;
-}; // 挂载方法
-
-
-exports._render = _render;
-ReactDom.render = render;
-},{"./base":"package/react-1/base.js","./Component":"package/react-1/Component.js"}],"package/react-1/Component.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.renderComponent = exports.setComponentProps = exports.createComponent = exports.Component = void 0;
-
-var _reactDom = require("./reactDom");
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Component = /*#__PURE__*/function () {
-  function Component() {
-    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, Component);
-
-    this.state = {};
-    this.props = props;
-  }
-
-  _createClass(Component, [{
-    key: "setState",
-    value: function setState(stateChange) {
-      Object.assign(this.state, stateChange);
-      renderComponent(this);
-    }
-  }]);
-
-  return Component;
-}(); // 创建组件
-
-
-exports.Component = Component;
 
 var createComponent = function createComponent(component, props) {
   var inst; // 如果是类定义组件，则直接返回实例
@@ -278,7 +244,7 @@ var createComponent = function createComponent(component, props) {
   if (component.prototype && component.prototype.render) {
     inst = new component(props); // 如果是函数定义组件，则将其扩展为类定义组件
   } else {
-    inst = new Component(props);
+    inst = new _Component.default(props);
     inst.constructor = component;
 
     inst.render = function () {
@@ -307,7 +273,7 @@ var setComponentProps = function setComponentProps(component, props) {
 exports.setComponentProps = setComponentProps;
 
 var renderComponent = function renderComponent(component) {
-  var base; // render() return dom
+  var base; // render() return v-dom
 
   var renderer = component.render();
   console.log(renderer, 11);
@@ -340,7 +306,7 @@ var renderComponent = function renderComponent(component) {
 };
 
 exports.renderComponent = renderComponent;
-},{"./reactDom":"package/react-1/reactDom.js"}],"package/react-1/React.js":[function(require,module,exports) {
+},{"./Component":"package/react-base/Component.js","./reactDom":"package/react-base/reactDom.js"}],"package/react-base/Component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -348,10 +314,51 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _Component = require("./Component");
+var _utils = require("./utils");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Component = /*#__PURE__*/function () {
+  function Component() {
+    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, Component);
+
+    this.state = {};
+    this.props = props;
+  }
+
+  _createClass(Component, [{
+    key: "setState",
+    value: function setState(stateChange) {
+      Object.assign(this.state, stateChange);
+      (0, _utils.renderComponent)(this);
+    }
+  }]);
+
+  return Component;
+}();
+
+var _default = Component;
+exports.default = _default;
+},{"./utils":"package/react-base/utils.js"}],"package/react-base/React.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Component = _interopRequireDefault(require("./Component"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = {};
-React.Component = _Component.Component;
+React.Component = _Component.default;
 
 React.createElement = function (tag, attrs) {
   for (var _len = arguments.length, children = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
@@ -367,7 +374,7 @@ React.createElement = function (tag, attrs) {
 
 var _default = React;
 exports.default = _default;
-},{"./Component":"package/react-1/Component.js"}],"package/react-1/ReactDom.js":[function(require,module,exports) {
+},{"./Component":"package/react-base/Component.js"}],"package/react-base/ReactDom.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -375,9 +382,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ReactDom = exports._render = void 0;
 
-var _base = require("./base");
-
-var _Component = require("./Component");
+var _utils = require("./utils");
 
 // ReactDom
 var ReactDom = {}; // 真实dom挂载
@@ -395,7 +400,7 @@ var _render = function _render(vnode) {
   };
 
   var renderMap = ["[object Null]", "[object Boolean]", "[object Undefined]"];
-  var type = (0, _base.getType)(vnode);
+  var type = (0, _utils.getType)(vnode);
   if (renderMap.includes(type)) emptyFn();
 
   if (type === "[object Number]") {
@@ -406,9 +411,9 @@ var _render = function _render(vnode) {
     return document.createTextNode(vnode);
   }
 
-  if ((0, _base.getType)(vnode.tag) === "[object Function]") {
-    var component = (0, _Component.createComponent)(vnode.tag, vnode.attrs);
-    (0, _Component.setComponentProps)(component, vnode.attrs);
+  if ((0, _utils.getType)(vnode.tag) === "[object Function]") {
+    var component = (0, _utils.createComponent)(vnode.tag, vnode.attrs);
+    (0, _utils.setComponentProps)(component, vnode.attrs);
     return component.base;
   }
 
@@ -417,7 +422,7 @@ var _render = function _render(vnode) {
   if (vnode.attrs) {
     Object.keys(vnode.attrs).forEach(function (key) {
       var value = vnode.attrs[key];
-      (0, _base.setAttribute)(dom, key, value);
+      (0, _utils.setAttribute)(dom, key, value);
     });
   } // 递归深度优先节点插入
 
@@ -431,7 +436,7 @@ var _render = function _render(vnode) {
 
 exports._render = _render;
 ReactDom.render = render;
-},{"./base":"package/react-1/base.js","./Component":"package/react-1/Component.js"}],"app.js":[function(require,module,exports) {
+},{"./utils":"package/react-base/utils.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -439,7 +444,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _React = _interopRequireDefault(require("./package/react-1/React"));
+var _React = _interopRequireDefault(require("./package/react-base/React"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -531,19 +536,19 @@ var App = /*#__PURE__*/function (_React$Component) {
 
 var _default = App;
 exports.default = _default;
-},{"./package/react-1/React":"package/react-1/React.js"}],"index.js":[function(require,module,exports) {
+},{"./package/react-base/React":"package/react-base/React.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _React = _interopRequireDefault(require("./package/react-1/React"));
+var _React = _interopRequireDefault(require("./package/react-base/React"));
 
-var _ReactDom = require("./package/react-1/ReactDom");
+var _ReactDom = require("./package/react-base/ReactDom");
 
 var _app = _interopRequireDefault(require("./app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _ReactDom.ReactDom.render(_React.default.createElement(_app.default, null), document.querySelector('#app'));
-},{"./package/react-1/React":"package/react-1/React.js","./package/react-1/ReactDom":"package/react-1/ReactDom.js","./app":"app.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./package/react-base/React":"package/react-base/React.js","./package/react-base/ReactDom":"package/react-base/ReactDom.js","./app":"app.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -571,7 +576,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59360" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

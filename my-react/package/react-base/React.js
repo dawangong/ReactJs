@@ -1,4 +1,4 @@
-import { Component } from './Component';
+import Component from './Component';
 
 const React = {};
 React.Component = Component;

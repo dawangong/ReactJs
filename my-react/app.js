@@ -1,4 +1,4 @@
-import React from './package/react-1/React';
+import React from './package/react-base/React';
 
 class App extends React.Component {
   constructor(props) {

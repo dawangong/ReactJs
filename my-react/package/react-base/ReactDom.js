@@ -1,5 +1,5 @@
-import { getType, setAttribute } from './base';
-import { setComponentProps, createComponent } from './Component';
+import { getType, setAttribute, setComponentProps, createComponent } from './utils';
+
 // ReactDom
 const ReactDom = {};
 // 真实dom挂载
